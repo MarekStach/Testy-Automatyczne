@@ -1,0 +1,38 @@
+{
+  "name": "automatyzacja_pliki",
+  "version": "1.0.0",
+  "description": "Automatyzacja kurs",
+  "main": "index.js",
+  "scripts": {
+    "e2e": "wdio wdio.conf.ts",
+    "ulekcja1": "wdio wdio.conf.ts --suite lekcja1",
+    "ulekcja2": "wdio wdio.conf.ts --suite lekcja2",
+    "ulekcja3": "wdio wdio.conf.ts --suite lekcja3",
+    "ulekcja4": "wdio wdio.conf.ts --suite lekcja4",
+    "ulekcja5": "wdio wdio.conf.ts --suite lekcja5",
+    "ulekcja6": "wdio wdio.conf.ts --suite lekcja6",
+    "ulekcja7": "wdio wdio.conf.ts --suite lekcja7",
+    "debug": "wdio wdio.conf.ts --suite debug",
+    "debug2": "wdio wdio.conf.ts --suite debug2"
+  },
+  "keywords": [
+    "automatyzacja",
+    "kurs"
+  ],
+  "author": "Marek",
+  "license": "ISC",
+  "devDependencies": {
+    "@wdio/allure-reporter": "^8.14.0",
+    "@wdio/cli": "^8.11.2",
+    "@wdio/local-runner": "^8.11.2",
+    "@wdio/mocha-framework": "^8.11.0",
+    "@wdio/spec-reporter": "^8.11.2",
+    "chromedriver": "^114.0.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6",
+    "wdio-chromedriver-service": "^8.1.1"
+  },
+  "dependencies": {
+    "allure-commandline": "^2.23.1"
+  }
+}

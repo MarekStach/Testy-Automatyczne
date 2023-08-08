@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "types": [
+            "node",
+            "@wdio/globals/types",
+            "expect-webdriverio",
+            "@wdio/mocha-framework"
+        ],
+        "allowJs": true,
+        "target": "ES6"
+    },
+    "include":[
+        "./src/spec/**/*.ts",
+        "./wdio.conf.ts",
+        "./src/pages/*.ts",
+        "./src/9config/*.ts",
+        "./src/pages/9components/*.ts"
+    ]
+}
