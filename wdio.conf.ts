@@ -1,4 +1,4 @@
-//toto const allure = require('allure-commandline')
+const allure = require('allure-commandline')
 import type { Options } from '@wdio/types'
 
 export const config: Options.Testrunner = {
@@ -169,12 +169,12 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
-    //toto reporters: ['spec', ['allure', {
-    //    outputDir: 'allure-results',
-    //    disableWebdriverStepsReporting: true,
-    //    disableWebdriverScreenshotsReporting: false,
-    // }]],
+    //reporters: ['spec'],
+    reporters: ['spec', ['allure', {
+       outputDir: 'allure-results',
+       disableWebdriverStepsReporting: true,
+       disableWebdriverScreenshotsReporting: false,
+     }]],
 
     
     //
@@ -281,11 +281,11 @@ export const config: Options.Testrunner = {
      */
     // afterTest: function(test, context, { error, result, duration, passed, retries }) {
     // },
-   //toto  afterTest: async function(test, context, { error, result, duration, passed, retries }) {
-   //     if (error) {
-    //        await browser.takeScreenshot();
-    //    }
-    //},
+     afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+        if (error) {
+            await browser.takeScreenshot();
+        }
+    },
 
     /**
      * Hook that gets executed after the suite has ended
@@ -329,26 +329,26 @@ export const config: Options.Testrunner = {
      */
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
-    //toto onComplete: function() {
-    //    const reportError = new Error('Could not generate Allure report')
-    //    const generation = allure(['generate', 'allure-results', '--clean'])
-    //    return new Promise((resolve, reject) => {
-    //        const generationTimeout = setTimeout(
-    //            () => reject(reportError),
-    //            5000)
+    /*toto onComplete: function() {
+        const reportError = new Error('Could not generate Allure report')
+        const generation = allure(['generate', 'allure-results', '--clean'])
+        return new Promise((resolve, reject) => {
+            const generationTimeout = setTimeout(
+                () => reject(reportError),
+                5000)
 
-    //        generation.on('exit', function(exitCode){
-    //            clearTimeout(generationTimeout)
+            generation.on('exit', function(exitCode){
+                clearTimeout(generationTimeout)
 
-    //            if (exitCode !== 0) {
-    //                return reject(reportError)
-    //            }
+                if (exitCode !== 0) {
+                    return reject(reportError)
+                }
 
-    //            console.log('Allure report successfully generated')
-    //            resolve()
-    //        })
-    //    })
-    //},
+                console.log('Allure report successfully generated')
+                //resolve()
+            })
+        })
+    }, toto*/
     /**
     * Gets executed when a refresh happens.
     * @param {string} oldSessionId session ID of the old session
