@@ -2,7 +2,7 @@ class cartPage {
 
  get sccessAlert(){
 
-    return $("div.successbox > p")
+    return $("div.successbox.oneline > p > strong")
  }
 
 
@@ -87,7 +87,7 @@ async clickOnCheckBoxBook(){
  async successAlertVisible(){
 
     const alert:WebdriverIO.Element = await this.sccessAlert;
-    expect(await alert.isDisplayed()).toBeTruthy();
+    expect(alert.isDisplayed()).toBeTruthy(); // tu musiałem usunąć awaita bo sie wywalało
  }
 
 async getTotalPriceVal(): Promise<string> {

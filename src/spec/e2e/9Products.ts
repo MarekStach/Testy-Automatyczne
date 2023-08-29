@@ -29,9 +29,10 @@ describe("E2E - products", async () => {
         
         await ResultPage.clickOnFirstBookItem();
         await ProPage.prodTitleIsDisplayed();
-        //browser.pause(5000);
+        
         await ProPage.addToBasketBtnIsVisible();
         ProdTitle = await ProPage.getProductTitle(); // to dodaje pod kontem kolejnych stepów
+        browser.pause(5000);
         ProdPrice = await ProPage.getProductPrice();
 
 
@@ -49,11 +50,12 @@ describe("E2E - products", async () => {
         //await console.log(await CartPage.getSuccessAlertValue());
         await CartPage.successAlertVisible(); // czy wyświetlił się alert
         await console.log(await CartPage.getSuccessAlertValue());
-        await console.log(ProdTitle);
+        await console.log("prodTitle = " + ProdTitle);
+        await console.log("prodTitle2 = " + await CartPage.getSuccessAlertValue());
         await expect(await CartPage.getSuccessAlertValue()).toContain(ProdTitle);
     })
 
-
+ 
     it("Sprawdzam czy cena na stronie produktu zgadza się z ceną na stronie koszyka",async () => {
         
         await expect(await CartPage.getTotalPriceVal()).toContain(ProdPrice);
