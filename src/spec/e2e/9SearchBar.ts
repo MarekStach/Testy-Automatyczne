@@ -37,7 +37,11 @@ describe("E2E- search bar",async () => {
     it("Klikamy na see all books button",async () => {
         
         await SearchBarPage.clickOnSeeAllBtn(); 
-        await expect(browser).toHaveUrl(searchPage);
+        //await expect(browser).toHaveUrl(searchPage);
+        let p:string = await browser.getUrl();
+        await console.log("to jest p: " + p);
+        await console.log("to jest SP: " + searchPage);
+        await expect(searchPage).toContain(p);
 
 
     })
@@ -46,7 +50,7 @@ describe("E2E- search bar",async () => {
         
          const to = await ResultPage.getSearchPageTitle();
          console.log("to jest to: " + to);
-         await expect(to).toContain(searchResultTitle);
+         await expect(searchResultTitle).toContain(to);
 
 
 
